@@ -1,5 +1,6 @@
 package com.example.dobozok;
 
+import javafx.animation.AnimationTimer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -21,6 +22,17 @@ public class HelloController {
     Label[][] t = new Label[10][15];
     String[][] tn = new String[10][15];
 
+    long step = 0;
+    AnimationTimer timer = new AnimationTimer() {
+        @Override
+        public void handle(long l) {
+            if(l > step){
+                step = l + 100000000;
+                arrow.setRotate(arrow.getRotate()+36);
+            }
+        }
+    };
+
     public void initialize(){
         for(int y = 0; y < 10; y++){
             for(int x = 0; x < 15; x++){
@@ -36,6 +48,7 @@ public class HelloController {
                 pane.getChildren().add(t[y][x]);
             }
         }
+        timer.start();
     }
 
     public void onRandomClick() {
