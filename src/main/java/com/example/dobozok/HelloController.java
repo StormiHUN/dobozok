@@ -27,7 +27,7 @@ public class HelloController {
         @Override
         public void handle(long l) {
             if(l > step){
-                step = l + 100000000;
+                step = l + 100_000_000;
                 arrow.setRotate(arrow.getRotate()+36);
             }
         }
@@ -48,10 +48,23 @@ public class HelloController {
                 pane.getChildren().add(t[y][x]);
             }
         }
+        onRandomClick();
         timer.start();
     }
 
     public void onRandomClick() {
-
+        for(int y = 0; y < 10; y++){
+            for(int x = 0; x < 15; x++){
+                t[y][x].setGraphic(new ImageView(new Image(getClass().getResourceAsStream("icons/null.png"))));
+                tn[y][x] = "icons/null.png";
+            }
+        }
+        for(int x = 0; x < 15; x++){
+            int rand = (int) (Math.random()*10);
+            for(int y = 9; y > 9-rand; y--){
+                tn[y][x] = "icons/box.png";
+                t[y][x].setGraphic(new ImageView(new Image(getClass().getResourceAsStream("icons/box.png"))));
+            }
+        }
     }
 }

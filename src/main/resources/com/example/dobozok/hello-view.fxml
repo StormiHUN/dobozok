@@ -6,8 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-
-<HBox fx:controller="com.example.dobozok.HelloController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dobozok.HelloController">
    <children>
       <Pane fx:id="pane" prefHeight="660.0" prefWidth="980.0" style="-fx-background-color: white; -fx-border-color: black;" />
       <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
@@ -48,6 +47,9 @@
                      </image>
                   </ImageView>
                </graphic>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
             </Label>
             <Label maxHeight="1.7976931348623157E308" VBox.vgrow="ALWAYS" />
             <Button mnemonicParsing="false" onAction="#onRandomClick" text="Random" />
